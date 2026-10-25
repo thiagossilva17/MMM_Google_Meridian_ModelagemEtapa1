@@ -1,0 +1,197 @@
+{
+  "repository": "thiagossilva17/MMM_Google_Meridian_ModelagemEtapa1",
+  "branch": "main",
+  "delivery_commit": "7daf8e57bc545deb8950ce28e3164b3222faafe4",
+  "delivery_commit_url": "https://github.com/thiagossilva17/MMM_Google_Meridian_ModelagemEtapa1/commit/7daf8e57bc545deb8950ce28e3164b3222faafe4",
+  "parent": "e3264efbbe1a0a0d57c8a2bdac59a013caa489d9",
+  "tree": "56280f05d7ed8504aa05df7818457e9604938685",
+  "remote_verification": "PASS: 37 blobs remotos conferidos pelos hashes Git; atualização fast-forward sem force",
+  "normalization": "acceptance.csv foi transmitido com LF; cópia local sincronizada. CSV bruto oficial inalterado.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "blob_sha": "80269b9ba501d2409297f0a2305eeca0d58896c7",
+      "bytes": 135
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "ba63458e7907dbd928f0534fda76903a11306efa",
+      "bytes": 2507
+    },
+    {
+      "path": "configs/baseline_geo.yaml",
+      "blob_sha": "1521cab3ad9122527711ab771020ddbb7939d20c",
+      "bytes": 2599
+    },
+    {
+      "path": "configs/experiment_registry.yaml",
+      "blob_sha": "2c97bd59abea0d70827d8f8edbe81ef1b208d321",
+      "bytes": 19416
+    },
+    {
+      "path": "configs/validation_design.yaml",
+      "blob_sha": "28ef23b6af3dc57d67c28bc0c910afded4710bb3",
+      "bytes": 1605
+    },
+    {
+      "path": "data/metadata/provenance.json",
+      "blob_sha": "c4288ff6bb4c730f2de39bb5d3d0a5f74b80de3e",
+      "bytes": 2134
+    },
+    {
+      "path": "data/raw/LICENSE.google",
+      "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "bytes": 11358
+    },
+    {
+      "path": "data/raw/geo_all_channels.csv",
+      "blob_sha": "855e25fe5f76cc895d458f456f7a1d45ba5d87b8",
+      "bytes": 966498
+    },
+    {
+      "path": "data/splits/holdout_geo.csv",
+      "blob_sha": "047ef2b49627ebe6262611da4d79e2bd2dbf3ad4",
+      "bytes": 141044
+    },
+    {
+      "path": "docs/01_DESENHO_CIENTIFICO_DIDATICO.md",
+      "blob_sha": "d190262ec8fd530732c94a6c598e8ea75d696a90",
+      "bytes": 41638
+    },
+    {
+      "path": "notebooks/01_DESENHO_CIENTIFICO_COLAB.ipynb",
+      "blob_sha": "be388dbdd08da8565a47eff989b76746936c1bd5",
+      "bytes": 86578
+    },
+    {
+      "path": "outputs/logs/api_source_verification.json",
+      "blob_sha": "55234adb71eb65e37b720b37cfcd0ff14d36e292",
+      "bytes": 1974
+    },
+    {
+      "path": "outputs/logs/api_validation.json",
+      "blob_sha": "f816a4daecc83b77ff98058fb98ab1c0af785a09",
+      "bytes": 1243
+    },
+    {
+      "path": "outputs/logs/execution_stderr.txt",
+      "blob_sha": "42032d1e1f5b8bd8c30442a383ecd7c359735a13",
+      "bytes": 1482
+    },
+    {
+      "path": "outputs/logs/execution_stdout.txt",
+      "blob_sha": "37122358b8a42ab1a99599c6493b9c39a4486150",
+      "bytes": 1955
+    },
+    {
+      "path": "outputs/logs/implementation_record.json",
+      "blob_sha": "51a2a2ba5b9f1df2f82237ff605d02c604a33339",
+      "bytes": 1284
+    },
+    {
+      "path": "outputs/logs/notebook_validation.json",
+      "blob_sha": "340b400315b3abedecd3e1ec52b4c0875c4ed1a0",
+      "bytes": 644
+    },
+    {
+      "path": "outputs/logs/pytest.txt",
+      "blob_sha": "ce52b131583ac2aedadbfb9dfca07ce325de9f26",
+      "bytes": 827
+    },
+    {
+      "path": "outputs/logs/run_manifest.json",
+      "blob_sha": "e2e248ec2c92ada89ea98ef63ebf5653efb94b36",
+      "bytes": 1955
+    },
+    {
+      "path": "outputs/tables/acceptance.csv",
+      "blob_sha": "d6037db851894005b8697a6044608fe86797887e",
+      "bytes": 2278
+    },
+    {
+      "path": "outputs/tables/data_audit.csv",
+      "blob_sha": "1579e63c0aaeca3328fd6651bf2328de83517dae",
+      "bytes": 1197
+    },
+    {
+      "path": "outputs/tables/eda_reconciliation.json",
+      "blob_sha": "f8b28c9bfbfd610b22fffdf6aab3bf2e3c3958ab",
+      "bytes": 1099
+    },
+    {
+      "path": "outputs/tables/holdout_by_channel_geo.csv",
+      "blob_sha": "39c293dc85a4cc24fc6ff000467afec27b647b8e",
+      "bytes": 30175
+    },
+    {
+      "path": "outputs/tables/holdout_by_geo.csv",
+      "blob_sha": "a92939f1e111a30be0fcb378bc0b4c77cac72c4b",
+      "bytes": 1333
+    },
+    {
+      "path": "outputs/tables/holdout_by_week.csv",
+      "blob_sha": "37f390fd1a4939bfdb9aa719803828c0d49e7763",
+      "bytes": 3300
+    },
+    {
+      "path": "outputs/tables/holdout_review.json",
+      "blob_sha": "2d13cb885feefed051676be6126e67e5626279f5",
+      "bytes": 523
+    },
+    {
+      "path": "outputs/tables/prior_inventory.json",
+      "blob_sha": "bd354adf25d65e53baa5bb867b30531f4d862f9f",
+      "bytes": 5673
+    },
+    {
+      "path": "outputs/tables/structural_evidence.json",
+      "blob_sha": "c36a70c3f347db2390de3c831252d99541400de3",
+      "bytes": 541
+    },
+    {
+      "path": "pytest.ini",
+      "blob_sha": "c7b23ecb1408be49fb2fa8ef77ffa48640681e34",
+      "bytes": 42
+    },
+    {
+      "path": "requirements-lock.txt",
+      "blob_sha": "b4486d4d4b919d9a6baa3a58b9bcc414f0d92257",
+      "bytes": 1778
+    },
+    {
+      "path": "requirements.txt",
+      "blob_sha": "2ca159fc0a9ffc00244ef5d3c60cda8b7c63e7bb",
+      "bytes": 164
+    },
+    {
+      "path": "src/data_contract.py",
+      "blob_sha": "8d2e07365e02b5b4fd501634b9bf2ff1b1f2bbe1",
+      "bytes": 4340
+    },
+    {
+      "path": "src/data_source.py",
+      "blob_sha": "4b6bd13e07414df397506a956f7de07b636f2232",
+      "bytes": 1765
+    },
+    {
+      "path": "src/meridian_setup.py",
+      "blob_sha": "bb4d1a6dcad0518b9fafc1502bbc4b4b01ec2f0f",
+      "bytes": 4315
+    },
+    {
+      "path": "src/run_stage1.py",
+      "blob_sha": "a55c3921a41d6bf21b1473d9159b2d5eb5309f96",
+      "bytes": 5220
+    },
+    {
+      "path": "src/validation_design.py",
+      "blob_sha": "02036127d8e0958b0a34fbee0168fdf4b84fed3b",
+      "bytes": 3211
+    },
+    {
+      "path": "tests/test_stage1.py",
+      "blob_sha": "6f528d4b4110a0a53206c0e5848a745eb60a23ce",
+      "bytes": 4288
+    }
+  ]
+}

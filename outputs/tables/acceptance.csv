@@ -15,4 +15,4 @@ item,resultado_observado,evidencia,status,pendencia
 14,NOT_TESTED_IN_HOSTED_COLAB,outputs/logs/notebook_validation.json,REVIEW,Executar sessão hospedada limpa e registrar evidência
 15,"Guia único, notebook e configurações coerentes",docs/01_DESENHO_CIENTIFICO_DIDATICO.md,PASS,Revisão metodológica humana recomendada antes da posterior
 16,"Sem posterior, prior sampling, ROI, mROI, otimização ou modelo nacional",outputs/logs/run_manifest.json; tests/test_stage1.py,PASS,
-17,Publicação via GitHub connector com parent da branch main,outputs/logs/implementation_record.json,REVIEW,SHA e verificação remota serão registrados após criar commit
+17,Commit 7daf8e57bc545deb8950ce28e3164b3222faafe4 publicado e 37 blobs remotos conferidos,outputs/logs/publication.json,PASS,
