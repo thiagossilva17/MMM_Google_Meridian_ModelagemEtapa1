@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "tensors": {
+    "kpi": {
+      "shape": [
+        40,
+        156
+      ],
+      "dims": [
+        "geo",
+        "time"
+      ]
+    },
+    "population": {
+      "shape": [
+        40
+      ],
+      "dims": [
+        "geo"
+      ]
+    },
+    "media": {
+      "shape": [
+        40,
+        156,
+        5
+      ],
+      "dims": [
+        "geo",
+        "media_time",
+        "media_channel"
+      ]
+    },
+    "media_spend": {
+      "shape": [
+        40,
+        156,
+        5
+      ],
+      "dims": [
+        "geo",
+        "time",
+        "media_channel"
+      ]
+    },
+    "controls": {
+      "shape": [
+        40,
+        156,
+        2
+      ],
+      "dims": [
+        "geo",
+        "time",
+        "control_variable"
+      ]
+    },
+    "organic_media": {
+      "shape": [
+        40,
+        156,
+        1
+      ],
+      "dims": [
+        "geo",
+        "media_time",
+        "organic_media_channel"
+      ]
+    },
+    "non_media_treatments": {
+      "shape": [
+        40,
+        156,
+        1
+      ],
+      "dims": [
+        "geo",
+        "time",
+        "non_media_channel"
+      ]
+    }
+  },
+  "structure": {
+    "initialization": "PASS",
+    "n_knots": 156,
+    "resolved_holdout_count": 936
+  }
+}

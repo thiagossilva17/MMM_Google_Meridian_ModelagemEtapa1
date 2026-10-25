@@ -1,0 +1,34 @@
+H-GEO:
+  status: explicit_choice
+  purpose: Diagnóstico comparável entre especificações GEO na mesma máscara.
+  algorithm: hash-cycle-v1
+  seed: 20261025
+  per_week: 6
+  fraction: 0.15
+  kpi_used_for_selection: false
+  coordinates: geo,time
+  artifact: data/splits/holdout_geo.csv
+  expected_test_cells: 936
+  expected_train_cells: 5304
+  coverage:
+    per_geo_test: [23, 24]
+    per_week_test: 6
+    min_active_per_channel_per_geo_per_subset: 1
+    channel2_activity_fraction_gap_review: 0.20
+    spend_test_share_review_range: [0.05, 0.30]
+    failure_action: Registrar REVIEW; não procurar seed com melhor KPI.
+  media_history: Preservada inclusive em células holdout.
+  limitation: Validação interpolativa condicional à mídia observada; não previsão prospectiva.
+H-COMP:
+  status: PENDING_METHOD_DECISION
+  candidate: Semanas internas não contíguas iguais nos dois modelos, mantendo extremos no treino.
+  fraction_proposed: 0.10
+  seed_proposed: 20261026
+  shared_scale: Soma nacional de conversões por semana.
+  required_before_execution:
+    - Definir knots interpoláveis com suporte no treino, iguais em desenho controlado quando viável.
+    - Não usar o KPI das semanas de teste para seleção de knots ou tuning.
+    - Auditar escala/priors dependentes do KPI e eventual uso indireto do teste.
+    - Fixar agregação dos índices e Promo com justificativa semântica.
+    - Separar comparação operacional de defaults da comparação metodológica controlada.
+  prohibited: Comparar R2 das células GEO com R2 de totais nacionais; usar H-GEO como teste nacional equivalente.

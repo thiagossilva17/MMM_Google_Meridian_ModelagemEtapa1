@@ -1,0 +1,37 @@
+[
+  {
+    "path": "meridian/model/spec.py",
+    "release_url": "https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/model/spec.py",
+    "installed_sha256": "46e38dd7b338c89050d51ed63cd5b38a0689cc3ba22645a14fb034e97f1e0a4d",
+    "source_sha256": "31e8796fe81fa0954572e96ff35bf46a87a1488d4821b3851def05e1f1610130",
+    "matches_normalized_text": true
+  },
+  {
+    "path": "meridian/model/prior_distribution.py",
+    "release_url": "https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/model/prior_distribution.py",
+    "installed_sha256": "fa285bc18c88bf8807018c749a4c474f5803eab2da357219d15803f6b0c376c8",
+    "source_sha256": "456e2a80b3f7fc4d71962cafa7d3dd7bd3dc8651d152fbcf3ba6bd8e4d3eacdc",
+    "matches_normalized_text": true
+  },
+  {
+    "path": "meridian/data/load.py",
+    "release_url": "https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/data/load.py",
+    "installed_sha256": "2bbbfd3e3d56256963de12d30091504c73066baf2237a3d9b016efc90b077dc7",
+    "source_sha256": "70cb21614890512bd33b644e7a7b3e277be0250c2309473c4fd05bc88ba3e884",
+    "matches_normalized_text": true
+  },
+  {
+    "path": "meridian/model/knots.py",
+    "release_url": "https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/model/knots.py",
+    "installed_sha256": "58016ede3ab6521e890f925c1396b68f572b4c5864919125216817ae2270459d",
+    "source_sha256": "a5afce20e318d0c047bb6c17dab9ac985ee4b8d735b3feba1e55f235c340b992",
+    "matches_normalized_text": true
+  },
+  {
+    "path": "meridian/version.py",
+    "release_url": "https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/version.py",
+    "installed_sha256": "69bf6b0fedbc677e817f525cd9ff34415c4b6db5a5dc831d9bd1fa2e005cc374",
+    "source_sha256": "ddb7430fd20429d2e66e5bc41f477c8f5847b9195b2d2ae7d05bbf064356af3f",
+    "matches_normalized_text": true
+  }
+]

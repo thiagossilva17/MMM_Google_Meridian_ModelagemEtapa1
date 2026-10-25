@@ -1,0 +1,18 @@
+item,resultado_observado,evidencia,status,pendencia
+1,Somente repositório pessoal autorizado e fontes oficiais,outputs/logs/implementation_record.json,PASS,
+2,"Guia lido integralmente, 15 vínculos EDA→desenho",docs/01_DESENHO_CIENTIFICO_DIDATICO.md §1,PASS,
+3,CSV oficial e identidade Git/SHA-256 verificados,data/metadata/provenance.json,PASS,Hash da cópia histórica EDA ausente; identidade histórica segue REVIEW
+4,"6240 linhas, 40 GEOs, 156 semanas e valores preservados",outputs/tables/data_audit.csv,PASS,
+5,"InputData real 2.1.0 construído, valores reconciliados",outputs/logs/api_validation.json,PASS,
+6,ModelSpec e estrutura Meridian inicializados sem inferência,outputs/logs/api_validation.json,PASS,
+7,"Priors inspecionadas e registradas, unidades explicitadas",outputs/tables/prior_inventory.json,REVIEW,"Prior predictive e revisão de Beta(1,99) na Entrega 2"
+8,DAG hipotético e 10 pressupostos com status,docs/01_DESENHO_CIENTIFICO_DIDATICO.md §3,PASS,Pressupostos não comprovados
+9,Máscara resolvida 936 teste/5304 treino; seis alertas C2,outputs/tables/holdout_review.json,REVIEW,Interpretar desequilíbrios locais; máscara preservada
+10,H-GEO distinto de H-COMP e vazamento documentado,configs/validation_design.yaml,REVIEW,PENDING_METHOD_DECISION para H-COMP
+11,25 experimentos planned e gates,configs/experiment_registry.yaml,PASS,Nenhum executado
+12,"20 testes aprovados, 0 falhas, 0 pulados",outputs/logs/pytest.txt,PASS,Aviso genérico de KPI não monetário documentado
+13,Schema e células originais executadas via IPython no mesmo processo,outputs/logs/notebook_validation.json,PASS,Kernel Jupyter bloqueado por sockets; não validado
+14,NOT_TESTED_IN_HOSTED_COLAB,outputs/logs/notebook_validation.json,REVIEW,Executar sessão hospedada limpa e registrar evidência
+15,"Guia único, notebook e configurações coerentes",docs/01_DESENHO_CIENTIFICO_DIDATICO.md,PASS,Revisão metodológica humana recomendada antes da posterior
+16,"Sem posterior, prior sampling, ROI, mROI, otimização ou modelo nacional",outputs/logs/run_manifest.json; tests/test_stage1.py,PASS,
+17,Publicação via GitHub connector com parent da branch main,outputs/logs/implementation_record.json,REVIEW,SHA e verificação remota serão registrados após criar commit

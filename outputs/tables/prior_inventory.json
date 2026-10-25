@@ -1,0 +1,295 @@
+[
+  {
+    "parameter": "knot_values",
+    "distribution": "Normal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "tau_g_excl_baseline",
+    "distribution": "Normal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "beta_m",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "beta_rf",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "beta_om",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "beta_orf",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "eta_m",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 1.0
+    }
+  },
+  {
+    "parameter": "eta_rf",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 1.0
+    }
+  },
+  {
+    "parameter": "eta_om",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 1.0
+    }
+  },
+  {
+    "parameter": "eta_orf",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 1.0
+    }
+  },
+  {
+    "parameter": "gamma_c",
+    "distribution": "Normal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "gamma_n",
+    "distribution": "Normal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "xi_c",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "xi_n",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "alpha_m",
+    "distribution": "Uniform",
+    "parameters": {
+      "low": 0.0,
+      "high": 1.0
+    }
+  },
+  {
+    "parameter": "alpha_rf",
+    "distribution": "Uniform",
+    "parameters": {
+      "low": 0.0,
+      "high": 1.0
+    }
+  },
+  {
+    "parameter": "alpha_om",
+    "distribution": "Uniform",
+    "parameters": {
+      "low": 0.0,
+      "high": 1.0
+    }
+  },
+  {
+    "parameter": "alpha_orf",
+    "distribution": "Uniform",
+    "parameters": {
+      "low": 0.0,
+      "high": 1.0
+    }
+  },
+  {
+    "parameter": "ec_m",
+    "distribution": "TruncatedNormal",
+    "parameters": {
+      "loc": 0.8,
+      "scale": 0.8,
+      "low": 0.1,
+      "high": 10.0
+    }
+  },
+  {
+    "parameter": "ec_rf",
+    "distribution": "TransformedDistribution",
+    "parameters": {
+      "distribution": "tfp.distributions.LogNormal(\"LogNormal\", batch_shape=[], event_shape=[], dtype=float64)",
+      "bijector": "tfp.bijectors.Shift(\"shift\", batch_shape=[], min_event_ndims=0, dtype=float64)",
+      "kwargs_split_fn": "<function _default_kwargs_split_fn at 0x7fb5c13ae980>",
+      "parameters": null
+    }
+  },
+  {
+    "parameter": "ec_om",
+    "distribution": "TruncatedNormal",
+    "parameters": {
+      "loc": 0.8,
+      "scale": 0.8,
+      "low": 0.1,
+      "high": 10.0
+    }
+  },
+  {
+    "parameter": "ec_orf",
+    "distribution": "TransformedDistribution",
+    "parameters": {
+      "distribution": "tfp.distributions.LogNormal(\"LogNormal\", batch_shape=[], event_shape=[], dtype=float64)",
+      "bijector": "tfp.bijectors.Shift(\"shift\", batch_shape=[], min_event_ndims=0, dtype=float64)",
+      "kwargs_split_fn": "<function _default_kwargs_split_fn at 0x7fb5c13ae980>",
+      "parameters": null
+    }
+  },
+  {
+    "parameter": "slope_m",
+    "distribution": "Deterministic",
+    "parameters": {
+      "loc": 1.0,
+      "atol": null,
+      "rtol": null
+    }
+  },
+  {
+    "parameter": "slope_rf",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.7,
+      "scale": 0.4
+    }
+  },
+  {
+    "parameter": "slope_om",
+    "distribution": "Deterministic",
+    "parameters": {
+      "loc": 1.0,
+      "atol": null,
+      "rtol": null
+    }
+  },
+  {
+    "parameter": "slope_orf",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.7,
+      "scale": 0.4
+    }
+  },
+  {
+    "parameter": "sigma",
+    "distribution": "HalfNormal",
+    "parameters": {
+      "scale": 5.0
+    }
+  },
+  {
+    "parameter": "roi_m",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.2,
+      "scale": 0.9
+    }
+  },
+  {
+    "parameter": "roi_rf",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.2,
+      "scale": 0.9
+    }
+  },
+  {
+    "parameter": "mroi_m",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 0.5
+    }
+  },
+  {
+    "parameter": "mroi_rf",
+    "distribution": "LogNormal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 0.5
+    }
+  },
+  {
+    "parameter": "contribution_m",
+    "distribution": "Beta",
+    "parameters": {
+      "concentration1": 1.0,
+      "concentration0": 99.0,
+      "force_probs_to_zero_outside_support": false
+    }
+  },
+  {
+    "parameter": "contribution_rf",
+    "distribution": "Beta",
+    "parameters": {
+      "concentration1": 1.0,
+      "concentration0": 99.0,
+      "force_probs_to_zero_outside_support": false
+    }
+  },
+  {
+    "parameter": "contribution_om",
+    "distribution": "Beta",
+    "parameters": {
+      "concentration1": 1.0,
+      "concentration0": 99.0,
+      "force_probs_to_zero_outside_support": false
+    }
+  },
+  {
+    "parameter": "contribution_orf",
+    "distribution": "Beta",
+    "parameters": {
+      "concentration1": 1.0,
+      "concentration0": 99.0,
+      "force_probs_to_zero_outside_support": false
+    }
+  },
+  {
+    "parameter": "contribution_n",
+    "distribution": "TruncatedNormal",
+    "parameters": {
+      "loc": 0.0,
+      "scale": 0.1,
+      "low": -1.0,
+      "high": 1.0
+    }
+  }
+]

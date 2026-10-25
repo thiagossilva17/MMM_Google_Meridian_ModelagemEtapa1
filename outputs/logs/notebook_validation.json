@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "method": "Células originais executadas sequencialmente via IPython InteractiveShell no mesmo processo Python; não é execução de kernel Jupyter",
+  "kernel_execution": "BLOCKED: ambiente nega sockets TCP/IPC; tentativas nbclient falharam antes da execução de células",
+  "hosted_colab": "NOT_TESTED_IN_HOSTED_COLAB",
+  "code_cells_executed": 8,
+  "errors": 0,
+  "executed_at_utc": "2026-10-25T11:46:18.114908+00:00",
+  "notebook_sha256": "5d9ce73de683106fc0a6a697dded0c2df82894ee5b3f0cbc53ef4260fe4f0503",
+  "post_execution_markdown_edit": "Adicionado DAG Mermaid; células executáveis e outputs preservados"
+}

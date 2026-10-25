@@ -1,0 +1,15 @@
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+*.pem
+*.key
+*.nc
+*.pkl
+*.pickle
+*.h5
+posterior*/
+checkpoints/

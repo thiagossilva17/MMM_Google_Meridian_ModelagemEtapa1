@@ -1,0 +1,412 @@
+execution_permitted_now: false
+gates:
+- data_ready
+- spec_ready
+- sampling_healthy
+- fit_reviewed
+- inference_reviewed
+- optimization_eligible
+experiments:
+- id: G0
+  status: planned
+  stage: 2
+  hypothesis: Referência GEO tecnicamente saudável
+  factor_changed: baseline
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - nenhum
+  eda_evidence: 'EDA: capítulos 18'
+  expected_output: R-hat/ESS e PPC
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: sampling_healthy
+  confounding_risk: priors podem dominar
+- id: G1
+  status: planned
+  stage: 2
+  hypothesis: Referência suporta células omitidas
+  factor_changed: holdout H-GEO
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G0
+  eda_evidence: 'EDA: capítulos 12/18'
+  expected_output: wMAPE e cobertura
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: fit_reviewed
+  confounding_risk: interpolação não equivale a forecasting
+- id: N0
+  status: planned
+  stage: 4
+  hypothesis: Agregado é referência viável
+  factor_changed: agregação nacional e restrição temporal necessária
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G0
+  eda_evidence: 'EDA: capítulos 18'
+  expected_output: diagnósticos e estimandos nacionais
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: sampling_healthy
+  confounding_risk: 'múltiplas diferenças inevitáveis: unidade, pooling e knots'
+- id: P1
+  status: planned
+  stage: 3
+  hypothesis: Contribuição paga é sensível à concentração
+  factor_changed: Beta(0.5,49.5) paga, mesma média 1%
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 15/16'
+  expected_output: intervalos e deslocamentos
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: prior mais dispersa pode mudar geometria
+- id: P2
+  status: planned
+  stage: 3
+  hypothesis: Contribuição paga é sensível ao centro
+  factor_changed: Beta(2,98) paga, concentração 100
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 15/16'
+  expected_output: intervalos e deslocamentos
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: média dobrada é stress test, não crença de negócio
+- id: P3
+  status: planned
+  stage: 3
+  hypothesis: Parametrização altera conclusões
+  factor_changed: ROI somente após validar unidades e equivalência aproximada da prior
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 2/16'
+  expected_output: comparação de prior preditiva e posterior
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: não atribuir diferenças apenas à parametrização se priors não
+    equivalentes
+- id: P4
+  status: planned
+  stage: 3
+  hypothesis: Orgânico depende da prior
+  factor_changed: Beta(0.5,49.5) orgânica, mesma média
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 13/15'
+  expected_output: estabilidade mídia paga e orgânica
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: correlação redistribui contribuição
+- id: A1
+  status: planned
+  stage: 3
+  hypothesis: Memória curta suficiente
+  factor_changed: max_lag=4
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 14'
+  expected_output: PPC e estabilidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: bordas e colinearidade transformada
+- id: A2
+  status: planned
+  stage: 3
+  hypothesis: Memória longa muda atribuição
+  factor_changed: max_lag=12
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 14'
+  expected_output: PPC e estabilidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: história pré-janela desconhecida
+- id: A3
+  status: planned
+  stage: 3
+  hypothesis: Forma de decaimento importa
+  factor_changed: adstock_decay_spec=binomial
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 14'
+  expected_output: PPC e parâmetros
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: mesmo alpha não representa mesma duração
+- id: A4
+  status: planned
+  stage: 3
+  hypothesis: Ordem das transformações importa
+  factor_changed: hill_before_adstock=True
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 15'
+  expected_output: PPC e incrementalidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: ec muda de interpretação
+- id: K1
+  status: planned
+  stage: 3
+  hypothesis: Menos flexibilidade temporal estabiliza
+  factor_changed: knots=52
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 4/9'
+  expected_output: PPC e estabilidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: confundimento temporal residual
+- id: K2
+  status: planned
+  stage: 3
+  hypothesis: Flexibilidade intermediária suficiente
+  factor_changed: knots=26
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 4/9'
+  expected_output: PPC e estabilidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: comparar cada alternativa diretamente a G1
+- id: K3
+  status: planned
+  stage: 3
+  hypothesis: AKS seleciona estrutura útil
+  factor_changed: enable_aks=True e knots=None
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 4/16'
+  expected_output: knots e PPC
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: verificar seleção sem KPI de holdout
+- id: K4
+  status: planned
+  stage: 3
+  hypothesis: Tempo pouco flexível distorce mídia
+  factor_changed: knots=13
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 4/9'
+  expected_output: PPC e estabilidade
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: stress test não escolha automática
+- id: C1
+  status: planned
+  stage: 3
+  hypothesis: Papel concorrência muda atribuição C4
+  factor_changed: remover apenas competitor_sales_control
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 13'
+  expected_output: efeito C4 e ajuste
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: omissão pode induzir viés; não escolher só por previsão
+- id: C2
+  status: planned
+  stage: 3
+  hypothesis: Orgânico disputa sinal com pago
+  factor_changed: remover apenas orgânico
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 13/15'
+  expected_output: contribuições pagas
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: efeito total versus direto pode mudar
+- id: C3
+  status: planned
+  stage: 3
+  hypothesis: Promo altera atribuição
+  factor_changed: remover apenas Promo
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 13'
+  expected_output: coeficientes e PPC
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: não equivale a provar mecanismo causal
+- id: C2_SPARSE
+  status: planned
+  stage: 3
+  hypothesis: Baixa atividade limita Channel2
+  factor_changed: estratificação diagnóstica ativo/inativo sem refit
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 12'
+  expected_output: ESS e suporte por GEO
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: seleção de estratos não causal
+- id: C3_CONTINUOUS
+  status: planned
+  stage: 3
+  hypothesis: Zero é extrapolação para Channel3
+  factor_changed: diagnóstico de suporte de contrafactual sem refit
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 12/14'
+  expected_output: incerteza e saturação
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: poucos zeros não sustentam ausência de canal
+- id: GEO_HET
+  status: planned
+  stage: 3
+  hypothesis: Heterogeneidade é informada pelos dados
+  factor_changed: eta_m HalfNormal(0.5), demais priors fixas
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 6/7/8'
+  expected_output: contrastes GEO e shrinkage
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: prior de pooling altera dispersão
+- id: GEO_NAT
+  status: planned
+  stage: 4
+  hypothesis: GEO melhora precisão sem perder estabilidade
+  factor_changed: granularidade sob H-COMP aprovado
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  - N0
+  eda_evidence: 'EDA: capítulos 18'
+  expected_output: largura e estabilidade de estimandos comuns
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: H-COMP pendente; não exige vitória GEO
+- id: INFLUENCE
+  status: planned
+  stage: 3
+  hypothesis: Extremos mudam atribuição
+  factor_changed: 'omitir do likelihood um caso por execução: Geo23/2022-02-28 ou
+    Geo36/2023-08-14'
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - G1
+  eda_evidence: 'EDA: capítulos 16'
+  expected_output: deslocamentos posteriores
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: sensibilidade não correção automática
+- id: F0
+  status: planned
+  stage: 5
+  hypothesis: Especificação final satisfaz critérios
+  factor_changed: congelamento justificado, sem novo tuning no teste
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - GEO_NAT
+  eda_evidence: 'EDA: capítulos 18'
+  expected_output: manifesto e revisão
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: inference_reviewed
+  confounding_risk: seleção pós-hoc exige transparência
+- id: O0
+  status: planned
+  stage: 5
+  hypothesis: Cenários são interpretáveis sob suporte
+  factor_changed: resposta/orçamento somente após elegibilidade
+  fixed_factors: Dados fixados, KPI, canais restantes, protocolo de validação e demais
+    parâmetros do comparador; N0/GEO_NAT explicitam exceções necessárias.
+  depends_on:
+  - F0
+  eda_evidence: 'EDA: capítulos Epílogo'
+  expected_output: cenários condicionais e incerteza
+  diagnostic: R-hat < 1.01; bulk/tail ESS >= 400; PPC; suporte e sensibilidade
+  decision_criteria: Aplicar critérios ex ante do guia; pausa se diagnóstico falhar;
+    mudança de mediana >20% ou >0.5 DP combinada exige revisão, não exclusão automática.
+  required_gate: optimization_eligible
+  confounding_risk: sem recomendação real com dados sintéticos

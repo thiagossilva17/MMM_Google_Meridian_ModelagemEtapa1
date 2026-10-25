@@ -1,0 +1,17 @@
+{
+  "rows": 6240,
+  "columns_clean": 19,
+  "geos": 40,
+  "weeks": 156,
+  "date_min": "2021-01-25",
+  "date_max": "2024-01-15",
+  "population_kpi_corr": 0.9693338567456896,
+  "between_kpi_fraction": 0.6788822241343846,
+  "channel2_zero_fraction": 0.6426282051282052,
+  "channel3_zero_fraction": 0.027083333333333334,
+  "promo_zero_fraction": 0.46826923076923077,
+  "channel2_spend_share": 0.05503310917455205,
+  "channel3_spend_share": 0.4002888360053137,
+  "population_once": 21696753.310000002,
+  "fractional_conversions_preserved": true
+}

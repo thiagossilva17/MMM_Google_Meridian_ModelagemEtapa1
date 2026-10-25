@@ -1,0 +1,42 @@
+{
+  "executed_at_utc": "2026-10-25T11:46:05.192613+00:00",
+  "scope": "Entrega 1: validação e configuração apenas",
+  "data_ready": "PASS",
+  "spec_ready": "PASS",
+  "scientific_readiness": "REVIEW",
+  "holdout_status": "REVIEW",
+  "holdout_train": 5304,
+  "holdout_test": 936,
+  "H_COMP": "PENDING_METHOD_DECISION",
+  "hosted_colab": "NOT_TESTED_IN_HOSTED_COLAB",
+  "posterior_sampling_executed": false,
+  "prior_sampling_executed": false,
+  "roi_estimated": false,
+  "national_model_constructed": false,
+  "source_sha256": "d9ee016f7cd21f5c90b50da10a794af91a372b69f881d3caa266edd41fdafbf6",
+  "python": "3.12.14",
+  "versions": {
+    "google-meridian": "2.1.0",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "tensorflow": "2.21.0",
+    "tfp-nightly": "0.26.0.dev20260130",
+    "jax": "0.12.0.1",
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "artifact_sha256": {
+    "outputs/tables/data_audit.csv": "f7deea34fb44612735395a23ca85c83eee7b80091f147c9520fddd6473d120a3",
+    "outputs/tables/eda_reconciliation.json": "34297321dce70dbd341f2af5e07afe91942b7ddd555e5315eb26b09737b055cb",
+    "outputs/tables/holdout_by_channel_geo.csv": "f49fada2824943136a5500ff5c339beaebe2573133d4f4cca8cc3e30dfd1fe6a",
+    "outputs/tables/holdout_by_geo.csv": "0c505f00cd3204f752a393fb84cd5049e91428a9d9b03a06f8531d46453bff7b",
+    "outputs/tables/holdout_by_week.csv": "9d2fe590aa09ab5ed2dffd63d4c4ad15f93bc38ca4ed5f1e6866732aa22f7202",
+    "outputs/tables/holdout_review.json": "a9fcc85d83e241047e410a71e2f3e845c5a9a29a029cc5a41efe9222a60618f5",
+    "outputs/tables/prior_inventory.json": "92ccfa0f0d158171431e015bb744707bd58a5e996fb38363fa5a1621c2f9623b",
+    "outputs/tables/structural_evidence.json": "21a634f15cdf0401ba5717b9e890eade06dac9e6a7b3ce8afe5bccf927189a54",
+    "data/splits/holdout_geo.csv": "dc1da829931b05e60f0df2834f9c06d5408c20036f08e4599ca7e1c0827e9990"
+  }
+}

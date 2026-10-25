@@ -1,0 +1,51 @@
+[
+  {
+    "indicator": "population_kpi_corr",
+    "observed": 0.9693338567456896,
+    "eda_rounded": 0.97,
+    "tolerance": 0.01,
+    "status": "PASS"
+  },
+  {
+    "indicator": "between_kpi_fraction",
+    "observed": 0.6788822241343846,
+    "eda_rounded": 0.68,
+    "tolerance": 0.01,
+    "status": "PASS"
+  },
+  {
+    "indicator": "channel2_zero_fraction",
+    "observed": 0.6426282051282052,
+    "eda_rounded": 0.643,
+    "tolerance": 0.001,
+    "status": "PASS"
+  },
+  {
+    "indicator": "channel3_zero_fraction",
+    "observed": 0.027083333333333334,
+    "eda_rounded": 0.027,
+    "tolerance": 0.001,
+    "status": "PASS"
+  },
+  {
+    "indicator": "promo_zero_fraction",
+    "observed": 0.46826923076923077,
+    "eda_rounded": 0.47,
+    "tolerance": 0.01,
+    "status": "PASS"
+  },
+  {
+    "indicator": "channel2_spend_share",
+    "observed": 0.05503310917455205,
+    "eda_rounded": 0.055,
+    "tolerance": 0.002,
+    "status": "PASS"
+  },
+  {
+    "indicator": "channel3_spend_share",
+    "observed": 0.4002888360053137,
+    "eda_rounded": 0.4,
+    "tolerance": 0.01,
+    "status": "PASS"
+  }
+]

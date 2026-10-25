@@ -1,0 +1,70 @@
+version: '2.1.0'
+source_commit: cb0be8fe454124aadb73222c579f081f8823edfd
+source_url: https://github.com/google/meridian/blob/cb0be8fe454124aadb73222c579f081f8823edfd/meridian/model/spec.py
+status: explicit_choice
+outcome: conversions
+kpi_type: non_revenue
+revenue_per_kpi: null
+revenue_policy: pending_decision
+scope: estrutura_sem_inferencia
+model_spec:
+  media_prior_type:
+    value: contribution
+    status: explicit_choice
+    reason: Evitar impor ROI monetário sem unidade validada; default Beta(1,99) exige revisão preditiva.
+  organic_media_prior_type:
+    value: contribution
+    status: verified_default
+    reason: Default técnico, não conhecimento de negócio.
+  non_media_treatments_prior_type:
+    value: contribution
+    status: verified_default
+    reason: Permite sinal positivo ou negativo na contribuição de Promo.
+  non_media_baseline_values:
+    value: {Promo: 0.0}
+    status: explicit_choice
+    reason: Zero observado; intervenção de ausência proposta, sem significado causal comprovado.
+  media_effects_dist:
+    value: log_normal
+    status: verified_default
+    reason: Pooling hierárquico com efeitos positivos; não admite danos da mídia neste baseline.
+  max_lag:
+    value: 8
+    status: verified_default
+    reason: Oito semanas de defasagem, não duração demonstrada pela EDA.
+  hill_before_adstock:
+    value: false
+    status: verified_default
+    reason: Acumula exposição antes de aplicar saturação.
+  adstock_decay_spec:
+    value: geometric
+    status: verified_default
+    reason: Forma parsimoniosa, comparar binomial depois.
+  saturation_spec:
+    value: hill
+    status: verified_default
+    reason: Retornos decrescentes; slope default fixo em 1.
+  unique_sigma_for_each_geo:
+    value: false
+    status: verified_default
+    reason: Escala residual comum no espaço transformado; sensibilidade futura.
+  knots:
+    value: null
+    status: verified_default
+    reason: 156 knots no GEO; não transportar silenciosamente ao nacional.
+  enable_aks:
+    value: false
+    status: verified_default
+    reason: Mantém referência explícita; seleção de knots é experimento posterior.
+  baseline_geo:
+    value: null
+    status: verified_default
+    reason: Referência de maior população, resolvida pela API.
+  population_scaled_controls:
+    value: null
+    status: explicit_choice
+    reason: Índices com sinal, sem evidência de serem volumes extensivos.
+  population_scaled_non_media_channels:
+    value: null
+    status: explicit_choice
+    reason: Promo tratada provisoriamente como intensidade contínua, não volume populacional.

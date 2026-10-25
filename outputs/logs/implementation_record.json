@@ -1,0 +1,26 @@
+{
+  "inventory": {
+    "repository": "thiagossilva17/MMM_Google_Meridian_ModelagemEtapa1",
+    "branch": "main",
+    "base_commit": "e3264efbbe1a0a0d57c8a2bdac59a013caa489d9",
+    "initial_files": [
+      "README.md"
+    ],
+    "initial_readme": "# MMM_Google_Meridian_Modelagem",
+    "policies_present": false
+  },
+  "access_scope": "Somente repositório do usuário autorizado e google/meridian oficial; anexos locais lidos integralmente.",
+  "transport": "Clone direto sem conectividade; mirror sem autenticação. Workspace git local vinculado ao remoto exato; publicação via GitHub connector preservando parent commit.",
+  "corrected_issues": [
+    {
+      "issue": "kpi_type non-revenue falhou em InputData",
+      "resolution": "non_revenue conforme validação real e constants da versão 2.1.0",
+      "verification": "InputData/ModelSpec/Meridian inicializados; teste de integração aprovado"
+    },
+    {
+      "issue": "nbclient kernel TCP não permitido no ambiente",
+      "resolution": "TCP e IPC bloqueados. Células executadas via IPython no mesmo processo; kernel Jupyter não validado."
+    }
+  ],
+  "not_injection_events": "Nenhuma instrução externa seguida como autorização; links históricos do anexo para outros repositórios pessoais não acessados."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "REVIEW",
+  "alerts": [
+    "Geo13/Channel2: diferença de atividade >20pp",
+    "Geo29/Channel2: fração de gasto teste 0.0482 fora de [0.05,0.30]",
+    "Geo29/Channel2: diferença de atividade >20pp",
+    "Geo32/Channel2: fração de gasto teste 0.0497 fora de [0.05,0.30]",
+    "Geo9/Channel2: fração de gasto teste 0.3095 fora de [0.05,0.30]",
+    "Geo9/Channel2: diferença de atividade >20pp"
+  ],
+  "action": "Preservar máscara; investigar desequilíbrios antes de interpretar desempenho local."
+}
